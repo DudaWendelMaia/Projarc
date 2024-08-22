@@ -1,3 +1,5 @@
+package Codigo1;
+
 public class Logger {
     private static Logger instance;
     

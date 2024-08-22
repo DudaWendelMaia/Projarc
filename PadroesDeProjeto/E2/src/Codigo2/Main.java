@@ -1,4 +1,4 @@
-import java.util.prefs.Preferences;
+package Codigo2;
 
 public class Main {
 
