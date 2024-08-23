@@ -1,7 +1,7 @@
 # Exercício 2
 
 <div align="center">
- <img height=250 width=250 src="https://refactoring.guru/images/patterns/content/singleton/singleton-3x.png">
+ <img height=250 width=300 src="https://refactoring.guru/images/patterns/content/singleton/singleton-3x.png">
 </div>
 
 ### Enunciado
