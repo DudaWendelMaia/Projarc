@@ -1,4 +1,4 @@
-# Exercício 2
+# Exercício Prático 2
 
 <div align="center">
  <img height=250 width=300 src="https://refactoring.guru/images/patterns/content/singleton/singleton-3x.png">
