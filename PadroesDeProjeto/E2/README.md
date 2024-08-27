@@ -42,6 +42,16 @@ O padrão escolhido pelo nosso grupo foi o **Singleton**.
   - **Instância privada:**  
     A instância única é armazenada como um campo estático privado da classe.
 
+  - **PlantUML código 1:**
+ <div align="center">
+ <img src="https://github.com/user-attachments/assets/a91d0ad0-e2b8-4fdb-a88f-f1b4d2f77c51" alt="PlantUML código 1" width="250">
+</div>
+ 
+  - **PlantUML código 2:**
+ <div align="center">
+ <img src="https://github.com/user-attachments/assets/b75b5c4f-9b60-4afb-bf83-2775f7c0b0fa" alt="PlantUML código 1" width="250">
+</div>
+
 ---
 
 Este exercício prático ajudou a reforçar a compreensão do padrão Singleton, sua aplicação e implementação em um contexto real. 🎓✨
