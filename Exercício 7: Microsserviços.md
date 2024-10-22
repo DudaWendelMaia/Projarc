@@ -1,11 +1,16 @@
 # Exercício E7: Microsserviços
 
+<div align="center">
+ <img height=200 width=200 src="https://media.tenor.com/iviIq2uXz-kAAAAi/work-office.gi">
+</div>
+
 ## Opção Escolhida: Letra "c"
 
 Neste exercício, foi solicitada a escolha entre três opções para a execução da atividade relacionada a microsserviços:
-a) Executar o roteiro da aula anterior
-b) Executar um exemplo da Spring sobre microsserviços (dica: usar a spring-petclinic-microservices)
-c) Elaborar um diagrama da UML: componentes ou implantação (destacar serviços da aplicação e dependencias)
+
+- **a)** Executar o roteiro da aula anterior
+- **b)** Executar um exemplo da Spring sobre microsserviços (dica: usar a spring-petclinic-microservices)
+- **c)** Elaborar um diagrama da UML: componentes ou implantação (destacar serviços da aplicação e dependencias)
 
 A opção escolhida foi a *letra "c", onde foi elaborado um **diagrama UML* de componentes ou implantação com destaque para os serviços da aplicação e suas dependências.
 
@@ -15,7 +20,7 @@ A aplicação escolhida para a elaboração do diagrama foi a *Spring PetClinic 
 
 ### 2. Descrição do Diagrama
 
-O diagrama criado aborda tanto a *arquitetura de componentes* quanto a *arquitetura de implantação (deployment)*. Nele, são evidenciadas as principais funcionalidades da aplicação Spring PetClinic Microsserviços e as dependências entre elas.
+O diagrama criado aborda .... Nele, são evidenciadas as principais funcionalidades da aplicação Spring PetClinic Microsserviços e as dependências entre elas.
 
 #### 2.1 Componentes
 
@@ -25,16 +30,13 @@ O diagrama criado aborda tanto a *arquitetura de componentes* quanto a *arquitet
 
 - 
 
-#### 2.3 Implantação (Deployment)
-
-Os microsserviços são implantados em contêineres individuais (ex: Docker), organizados e orquestrados através de Kubernetes ou ferramentas similares. Cada serviço pode escalar independentemente, garantindo alta disponibilidade e escalabilidade da aplicação.
-
 ### 3. Diagrama UML
 
 *Colocar imagem*
 
 ### 4. Script para a criação do diagrama UML
 
+*Colocar scipt*
 
 ### 5. Conclusão
 
