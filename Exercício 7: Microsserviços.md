@@ -12,11 +12,11 @@ Neste exercício, foi solicitada a escolha entre três opções para a execuçã
 - **b)** Executar um exemplo da Spring sobre microsserviços (dica: usar a spring-petclinic-microservices)
 - **c)** Elaborar um diagrama da UML: componentes ou implantação (destacar serviços da aplicação e dependencias)
 
-A opção escolhida foi a *letra "c", onde foi elaborado um **diagrama UML* de componentes ou implantação com destaque para os serviços da aplicação e suas dependências.
+A opção escolhida foi a *letra "c", onde foi elaborado um **diagrama UML** de componentes para o spring-petclinic-microservices.
 
 ### 1. Contexto
 
-A aplicação escolhida para a elaboração do diagrama foi a *Spring PetClinic - Microsserviços, que é um exemplo prático e bem estabelecido no uso de arquitetura de microsserviços utilizando **Spring Cloud*. A aplicação simula uma clínica veterinária, onde os serviços são divididos em diversos microsserviços independentes, como o serviço de gerenciamento de donos de pets, visitas, veterinários, entre outros.
+A aplicação escolhida para a elaboração do diagrama foi a **spring-petclinic-microservices**, que é o exemplo prático e bem estabelecido no uso de arquitetura de microsserviços utilizando **Spring Cloud* que foi passado em aula. A aplicação simula uma clínica veterinária, onde os serviços são divididos em diversos microsserviços independentes, como o serviço de gerenciamento de donos de pets, visitas, veterinários, entre outros.
 
 ### 2. Descrição do Diagrama
 
@@ -36,7 +36,54 @@ O diagrama criado aborda .... Nele, são evidenciadas as principais funcionalida
 
 ### 4. Script para a criação do diagrama UML
 
-*Colocar scipt*
+```plantuml
+@startuml
+
+package "PetClinic Microservices" {
+    [Customers Service] --> [Customers DB]
+    [Vets Service] --> [Vets DB]
+    [Visits Service] --> [Visits DB]
+    
+    [Customers Service] --> [Vets Service] : REST API
+    [Customers Service] --> [Visits Service] : REST API
+    [Vets Service] --> [Visits Service] : REST API
+}
+
+package "Infrastructure" {
+    [API Gateway] --> [Customers Service]
+    [API Gateway] --> [Vets Service]
+    [API Gateway] --> [Visits Service]
+    
+    [Discovery Server] --> [Customers Service] : Service Registration
+    [Discovery Server] --> [Vets Service] : Service Registration
+    [Discovery Server] --> [Visits Service] : Service Registration
+
+    [Config Server] --> [Customers Service] : Configuration
+    [Config Server] --> [Vets Service] : Configuration
+    [Config Server] --> [Visits Service] : Configuration
+    
+    [Message Broker] --> [Visits Service] : Asynchronous Messaging
+
+    [Tracing Service] --> [API Gateway] : Distributed Tracing
+    [Tracing Service] --> [Customers Service] : Distributed Tracing
+    [Tracing Service] --> [Vets Service] : Distributed Tracing
+    [Tracing Service] --> [Visits Service] : Distributed Tracing
+    
+    [Prometheus] --> [API Gateway] : Monitoring
+    [Prometheus] --> [Customers Service] : Monitoring
+    [Prometheus] --> [Vets Service] : Monitoring
+    [Prometheus] --> [Visits Service] : Monitoring
+
+    [Grafana] --> [Prometheus] : Visualization
+    
+    [Resilience4j] --> [API Gateway] : Circuit Breaker
+    [Resilience4j] --> [Customers Service] : Circuit Breaker
+    [Resilience4j] --> [Vets Service] : Circuit Breaker
+    [Resilience4j] --> [Visits Service] : Circuit Breaker
+}
+
+@enduml
+```
 
 ### 5. Conclusão
 
