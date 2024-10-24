@@ -40,20 +40,16 @@ O diagrama criado aborda .... Nele, são evidenciadas as principais funcionalida
 @startuml
 
 package "PetClinic Microservices" {
-    [Customers Service] --> [Customers DB]
-    [Vets Service] --> [Vets DB]
-    [Visits Service] --> [Visits DB]
-    
     [Customers Service] --> [Vets Service] : REST API
     [Customers Service] --> [Visits Service] : REST API
     [Vets Service] --> [Visits Service] : REST API
 }
 
 package "Infrastructure" {
-    [API Gateway] --> [Customers Service]
-    [API Gateway] --> [Vets Service]
-    [API Gateway] --> [Visits Service]
-    
+    [API Gateway] --> [Customers Service] : Routes
+    [API Gateway] --> [Vets Service] : Routes
+    [API Gateway] --> [Visits Service] : Routes
+
     [Discovery Server] --> [Customers Service] : Service Registration
     [Discovery Server] --> [Vets Service] : Service Registration
     [Discovery Server] --> [Visits Service] : Service Registration
@@ -61,25 +57,26 @@ package "Infrastructure" {
     [Config Server] --> [Customers Service] : Configuration
     [Config Server] --> [Vets Service] : Configuration
     [Config Server] --> [Visits Service] : Configuration
-    
-    [Message Broker] --> [Visits Service] : Asynchronous Messaging
 
-    [Tracing Service] --> [API Gateway] : Distributed Tracing
-    [Tracing Service] --> [Customers Service] : Distributed Tracing
-    [Tracing Service] --> [Vets Service] : Distributed Tracing
-    [Tracing Service] --> [Visits Service] : Distributed Tracing
-    
-    [Prometheus] --> [API Gateway] : Monitoring
-    [Prometheus] --> [Customers Service] : Monitoring
-    [Prometheus] --> [Vets Service] : Monitoring
-    [Prometheus] --> [Visits Service] : Monitoring
+    [Message Broker] --> [Visits Service] : Notifications
 
+    [Tracing Service] --> [API Gateway] : Monitoring
+    [Tracing Service] --> [Customers Service] : Monitoring
+    [Tracing Service] --> [Vets Service] : Monitoring
+    [Tracing Service] --> [Visits Service] : Monitoring
+}
+
+package "Databases" {
+    [customers-db] --> [Customers Service] : Persistent Storage
+    [vets-db] --> [Vets Service] : Persistent Storage
+    [visits-db] --> [Visits Service] : Persistent Storage
+}
+
+package "Monitoring and Metrics" {
+    [Prometheus] --> [Customers Service] : Metrics Collection
+    [Prometheus] --> [Vets Service] : Metrics Collection
+    [Prometheus] --> [Visits Service] : Metrics Collection
     [Grafana] --> [Prometheus] : Visualization
-    
-    [Resilience4j] --> [API Gateway] : Circuit Breaker
-    [Resilience4j] --> [Customers Service] : Circuit Breaker
-    [Resilience4j] --> [Vets Service] : Circuit Breaker
-    [Resilience4j] --> [Visits Service] : Circuit Breaker
 }
 
 @enduml
